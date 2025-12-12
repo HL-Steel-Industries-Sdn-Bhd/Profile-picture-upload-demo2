@@ -102,7 +102,7 @@ hiddenUpload.onchange = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
-    const compressed = await compressImage(file, 1000);
+    const compressed = await compressImage(file, 800);
     const base64 = compressed.split(",")[1];
 
     // 显示图片
@@ -131,7 +131,7 @@ function compressImage(file, maxWidth) {
                 canvas.height = img.height * scale;
                 const ctx = canvas.getContext("2d");
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                resolve(canvas.toDataURL("image/jpeg", 0.85));
+                resolve(canvas.toDataURL("image/jpeg", 0.8));
             };
             img.src = evt.target.result;
         };
